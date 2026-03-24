@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KAYONG BIBLE - 16 SÁCH</title>
+    <title>KAYONG BIBLE - 27 SÁCH TÂN ƯỚC</title>
     <style>
         :root {
             --primary-red: #8b0000;
@@ -31,8 +31,8 @@
 
         input[type="text"] {
             width: 100%;
-            padding: 10px;
-            border-radius: 5px;
+            padding: 12px;
+            border-radius: 8px;
             border: 1px solid var(--iron-gold);
             background: #222;
             color: white;
@@ -51,7 +51,7 @@
             background-color: #333;
             color: var(--iron-gold);
             border: 1px solid var(--iron-gold);
-            padding: 8px 15px;
+            padding: 10px 15px;
             border-radius: 5px;
             font-size: 16px;
             cursor: pointer;
@@ -61,45 +61,73 @@
             width: 100%;
             max-width: 800px;
             background: var(--card-bg);
-            padding: 20px;
-            border-radius: 10px;
-            border-top: 3px solid var(--primary-red);
-            line-height: 1.6;
+            padding: 25px;
+            border-radius: 12px;
+            border-top: 4px solid var(--primary-red);
+            line-height: 1.8;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
-        h2 { color: var(--primary-red); text-transform: uppercase; }
-        .verse-num { color: var(--iron-gold); font-weight: bold; margin-right: 10px; }
+        h2 { color: var(--iron-gold); text-transform: uppercase; margin-bottom: 10px; }
+        h3 { color: var(--primary-red); margin-top: 0; }
+        .verse-num { color: var(--iron-gold); font-weight: bold; margin-right: 10px; font-size: 0.9em; }
     </style>
 </head>
 <body>
 
     <h2>KAYONG BIBLE</h2>
+    <h3>27 Sách Tân Ước</h3>
 
     <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Tìm kiếm từ khóa trong Kinh Thánh..." onkeyup="searchFunction()">
+        <input type="text" id="searchInput" placeholder="Tìm kiếm câu Kinh Thánh..." onkeyup="searchFunction()">
     </div>
 
     <div class="controls">
-        <label>Chọn Sách: 
+        <label>Sách: 
             <select id="bookSelect">
-                <option value="book1">Sách 1 (Ví dụ: Sáng Thế)</option>
-                <option value="book2">Sách 2</option>
-                <option value="book3">Sách 3</option>
-                </select>
+                <option value="mat-the">Ma-thi-ơ</option>
+                <option value="mac">Mác</option>
+                <option value="lu-ca">Lu-ca</option>
+                <option value="gian">Giăng</option>
+                <option value="cong-vu">Công-vụ các Sứ-đồ</option>
+                <option value="ro-ma">Rô-ma</option>
+                <option value="1-co-rin-to">1 Cô-rin-tô</option>
+                <option value="2-co-rin-to">2 Cô-rin-tô</option>
+                <option value="ga-la-ti">Ga-la-ti</option>
+                <option value="e-phe-so">Ê-phê-sô</option>
+                <option value="phi-lip">Phi-líp</option>
+                <option value="co-lo-se">Cô-lô-se</option>
+                <option value="1-te-sa-lo-ni-ca">1 Tê-sa-lô-ni-ca</option>
+                <option value="2-te-sa-lo-ni-ca">2 Tê-sa-lô-ni-ca</option>
+                <option value="1-ti-mo-the">1 Ti-mô-thê</option>
+                <option value="2-ti-mo-the">2 Ti-mô-thê</option>
+                <option value="tit">Tít</option>
+                <option value="phi-le-mon">Phi-lê-môn</option>
+                <option value="he-bo-ro">Hê-bơ-rơ</option>
+                <option value="gia-co">Gia-cơ</option>
+                <option value="1-phi-e-ro">1 Phi-e-rơ</option>
+                <option value="2-phi-e-ro">2 Phi-e-rơ</option>
+                <option value="1-gian">1 Giăng</option>
+                <option value="2-gian">2 Giăng</option>
+                <option value="3-gian">3 Giăng</option>
+                <option value="ju-de">Ju-đe</option>
+                <option value="khai-huyen">Khải-huyền</option>
+            </select>
         </label>
 
         <label>Chương: 
             <select id="chapterSelect">
                 <option>1</option>
                 <option>2</option>
+                <option>3</option>
             </select>
         </label>
     </div>
 
     <div class="content-area" id="bibleContent">
-        <p><span class="verse-num">1</span> Ban đầu Đức Chúa Trời dựng nên trời đất...</p>
-        <p><span class="verse-num">2</span> Vả, đất là vô hình và trống không...</p>
-    </div>
+        <p><span class="verse-num">1</span> Ban đầu có Ngôi Lời, Ngôi Lời ở cùng Đức Chúa Trời, và Ngôi Lời là Đức Chúa Trời.</p>
+        <p><span class="verse-num">2</span> Ngài ở cùng Đức Chúa Trời từ ban đầu...</p>
+        </div>
 
     <script>
         function searchFunction() {
@@ -111,7 +139,11 @@
                 let text = paragraphs[i].innerText.toLowerCase();
                 if (text.includes(input)) {
                     paragraphs[i].style.display = "";
-                    paragraphs[i].style.backgroundColor = input !== "" ? "#444" : "transparent";
+                    if (input !== "") {
+                        paragraphs[i].style.backgroundColor = "#444";
+                    } else {
+                        paragraphs[i].style.backgroundColor = "transparent";
+                    }
                 } else {
                     paragraphs[i].style.display = "none";
                 }
@@ -121,7 +153,7 @@
 
 </body>
 </html>
-1 phút
+Vừa xong
 
 Thêm Emoji, Nhãn dán hoặc GIF
 

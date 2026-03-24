@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KAYONG BIBLE - 16 SACH</title>
+    <title>KAYONG BIBLE - 16 SÁCH</title>
     <style>
         :root {
             --primary-red: #8b0000;
@@ -18,147 +18,110 @@
             color: #ffffff;
             margin: 0;
             display: flex;
-            height: 100vh;
-        }
-
-        /* Thanh bên trái: Danh sách 16 sách */
-        .sidebar {
-            width: 250px;
-            background-color: #000;
-            border-right: 2px solid var(--primary-red);
-            overflow-y: auto;
-            padding: 10px;
-        }
-
-        .sidebar h2 {
-            color: var(--iron-gold);
-            font-size: 1.2rem;
-            text-align: center;
-            border-bottom: 1px solid #333;
-            padding-bottom: 10px;
-        }
-
-        .book-link {
-            display: block;
-            padding: 10px;
-            color: #bbb;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-bottom: 5px;
-            transition: 0.3s;
-        }
-
-        .book-link:hover, .book-link.active {
-            background-color: var(--primary-red);
-            color: white;
-        }
-
-        /* N?i dung chính */
-        .main-content {
-            flex: 1;
-            display: flex;
             flex-direction: column;
+            align-items: center;
             padding: 20px;
-            overflow-y: auto;
+        }
+
+        .search-container {
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid var(--iron-gold);
+            background: #222;
+            color: white;
+            font-size: 16px;
         }
 
         .controls {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             margin-bottom: 20px;
-            background: var(--card-bg);
-            padding: 15px;
-            border-radius: 10px;
-            border: 1px solid #333;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         select {
-            padding: 8px;
-            background: #333;
-            color: white;
-            border: 1px solid var(--iron-gold);
-            border-radius: 5px;
-        }
-
-        .bible-text {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 10px;
-            line-height: 1.8;
-            font-size: 1.2rem;
-            min-height: 400px;
-            border-top: 4px solid var(--primary-red);
-        }
-
-        .verse { margin-bottom: 15px; }
-        .verse-num {
+            background-color: #333;
             color: var(--iron-gold);
-            font-weight: bold;
-            margin-right: 10px;
+            border: 1px solid var(--iron-gold);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
         }
 
-        .header-title {
-            color: var(--primary-red);
-            text-transform: uppercase;
-            font-weight: bold;
-            margin-bottom: 10px;
+        .content-area {
+            width: 100%;
+            max-width: 800px;
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 3px solid var(--primary-red);
+            line-height: 1.6;
         }
+
+        h2 { color: var(--primary-red); text-transform: uppercase; }
+        .verse-num { color: var(--iron-gold); font-weight: bold; margin-right: 10px; }
     </style>
 </head>
 <body>
 
-    <div class="sidebar">
-        <h2>KAYONG BIBLE</h2>
-        <a href="#" class="book-link active">Sách 1: Sáng Th?</a>
-        <a href="#" class="book-link">Sách 2: Xu?t Hành</a>
-        <a href="#" class="book-link">Sách 3: Lê-vi</a>
-        <a href="#" class="book-link">Sách 4: Dân S?</a>
-        <a href="#" class="book-link">Sách 5: Ð? Nh? Lu?t</a>
-        <a href="#" class="book-link">Sách 6: Giô-suê</a>
-        <a href="#" class="book-link">Sách 7: Th? Lãnh</a>
-        <a href="#" class="book-link">Sách 8: Rút</a>
-        <a href="#" class="book-link">Sách 9: 1 Sa-mu-ên</a>
-        <a href="#" class="book-link">Sách 10: 2 Sa-mu-ên</a>
-        <a href="#" class="book-link">Sách 11: 1 Các Vua</a>
-        <a href="#" class="book-link">Sách 12: 2 Các Vua</a>
-        <a href="#" class="book-link">Sách 13: 1 S? Biên Niên</a>
-        <a href="#" class="book-link">Sách 14: 2 S? Biên Niên</a>
-        <a href="#" class="book-link">Sách 15: Ét-ra</a>
-        <a href="#" class="book-link">Sách 16: Nê-hê-mi-a</a>
+    <h2>KAYONG BIBLE</h2>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Tìm kiếm từ khóa trong Kinh Thánh..." onkeyup="searchFunction()">
     </div>
 
-    <div class="main-content">
-        <div class="controls">
-            <div>
-                <label>Ch?n Chuong: </label>
-                <select id="chapter-select">
-                    <option>Chuong 1</option>
-                    <option>Chuong 2</option>
+    <div class="controls">
+        <label>Chọn Sách: 
+            <select id="bookSelect">
+                <option value="book1">Sách 1 (Ví dụ: Sáng Thế)</option>
+                <option value="book2">Sách 2</option>
+                <option value="book3">Sách 3</option>
                 </select>
-            </div>
-            <div>
-                <label>Ð?n Câu: </label>
-                <select id="verse-select">
-                    <option>Câu 1</option>
-                    <option>Câu 2</option>
-                </select>
-            </div>
-        </div>
+        </label>
 
-        <div class="bible-text" id="content-display">
-            <h3 class="header-title">N?i dung Kinh Thánh</h3>
-            
-            <div class="verse">
-                <span class="verse-num">1</span>
-                <span>Ban d?u Ð?c Chúa Tr?i d?ng nên tr?i d?t... (B?n hãy xóa dòng này và di?n n?i dung c?a b?n vào dây)</span>
-            </div>
-
-            <div class="verse">
-                <span class="verse-num">2</span>
-                <span>V?, d?t là vô hình và tr?ng không...</span>
-            </div>
-            </div>
+        <label>Chương: 
+            <select id="chapterSelect">
+                <option>1</option>
+                <option>2</option>
+            </select>
+        </label>
     </div>
+
+    <div class="content-area" id="bibleContent">
+        <p><span class="verse-num">1</span> Ban đầu Đức Chúa Trời dựng nên trời đất...</p>
+        <p><span class="verse-num">2</span> Vả, đất là vô hình và trống không...</p>
+    </div>
+
+    <script>
+        function searchFunction() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let content = document.getElementById('bibleContent');
+            let paragraphs = content.getElementsByTagName('p');
+
+            for (let i = 0; i < paragraphs.length; i++) {
+                let text = paragraphs[i].innerText.toLowerCase();
+                if (text.includes(input)) {
+                    paragraphs[i].style.display = "";
+                    paragraphs[i].style.backgroundColor = input !== "" ? "#444" : "transparent";
+                } else {
+                    paragraphs[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 
 </body>
 </html>
+1 phút
+
+Thêm Emoji, Nhãn dán hoặc GIF
+

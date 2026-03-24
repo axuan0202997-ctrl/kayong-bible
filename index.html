@@ -51,15 +51,27 @@
         }
 
         input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            border-radius: 6px;
-            border: 1px solid var(--iron-gold);
-            background: #FFFFFF;  /* Đổi sang nền trắng cho sạch */
-    color: #1E293B;       /* Chữ bên trong đổi sang màu xanh đen để dễ đọc */
-    border: 1px solid #94A3B8; /* Viền màu xám xanh cho nhẹ nhàng */
-            font-size: 16px;
-        }
+           /* Sửa màu cho ô chọn Sách và Chương */
+select {
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #FFFFFF; /* Đổi nền từ đen sang trắng */
+    color: #1E293B;           /* Chữ màu xanh đen cho rõ */
+    border: 1px solid #94A3B8; /* Viền xám xanh cho đồng bộ */
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Nếu bạn có đặt class .controls cho vùng này, hãy thêm dòng này */
+.controls select {
+    background-color: #FFFFFF;
+    color: #1E293B;
+}
+Vừa xong
+
+Thêm Emoji, Nhãn dán hoặc GIF
+
+
 
         .controls {
             display: flex;
